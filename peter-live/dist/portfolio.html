@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Images of Peter Rentrop, MD | Portfolio</title>
+  <meta name="description" content="A visual portfolio featuring Peter Rentrop, MD, his cardiovascular innovations, clinical leadership, and commitment to accessible cardiac care.">
+  <meta name="author" content="Peter Rentrop, MD">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://peterrentrop.com/portfolio/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Peter Rentrop, MD">
+  <meta property="og:title" content="Images of Peter Rentrop, MD | Portfolio">
+  <meta property="og:description" content="A visual portfolio featuring Peter Rentrop, MD and his work in cardiovascular medicine.">
+  <meta property="og:image" content="https://peterrentrop.com/wp-content/uploads/2024/04/Dr.-Peter-Rentrop.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23061826'/%3E%3Cpath d='M32 49S13 38 13 23c0-8 5-13 12-13 4 0 7 2 9 5 2-3 5-5 9-5 7 0 12 5 12 13 0 15-19 26-23 26Z' fill='none' stroke='%23d2aa4d' stroke-width='3'/%3E%3Cpath d='M8 31h12l4-8 7 18 5-12 4 2h16' fill='none' stroke='%238fc8c3' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="manifest" href="site.webmanifest">
+  <script>document.documentElement.classList.add('js');</script>
+
+  <style>
+/* Main Wrapper to ensure minimum 100vh */
+    .gallery-wrapper {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding-bottom: 30px;
+        box-sizing: border-box;
+    }
+
+    /* Title Styling */
+    .gallery-title {
+        text-align: center;
+        margin-bottom: 25px;
+        margin-top: 20px;
+        font-size: 2.2em;
+        color: #333;
+        font-weight: bold;
+    }
+
+    /* Smart Gallery Container */
+    .smart-justified-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Exactly centers the images */
+        gap: 15px; /* Clean, tight gap between images */
+        width: 100%;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    /* Gallery Items */
+    .smart-gallery-item {
+        height: 280px; /* Fixed height so they align perfectly in a row */
+        display: block;
+        margin: 0;
+    }
+
+    /* Image styling - Natural Width, Fixed Height (NO CROP & NO PHANTOM GAPS) */
+    .smart-gallery-item img {
+        height: 100%; /* Matches the 280px container height */
+        width: auto; /* MAGIC FIX: Let's the image naturally set its own width based on height */
+        display: block;
+        cursor: pointer;
+        transition: transform 0.4s ease;
+        border-radius: 6px;
+    }
+
+    .smart-gallery-item img:hover {
+        transform: scale(1.03); /* Hover zoom effect */
+    }
+
+    /* Responsive heights for Tablet & Mobile */
+    @media (max-width: 900px) {
+        .smart-gallery-item {
+            height: 220px;
+        }
+        .gallery-title {
+            font-size: 1.8em;
+        }
+    }
+   
+    @media (max-width: 500px) {
+        .smart-gallery-item {
+            height: auto;
+            width: 100%; /* Take full width on small mobile screens */
+        }
+        .smart-gallery-item img {
+            width: 100%;
+            height: auto; /* Natural aspect ratio on mobile */
+        }
+        .gallery-title {
+            font-size: 1.5em;
+        }
+    }
+
+    /* Lightbox Overlay Styling */
+    .custom-lightbox {
+        display: none;
+        position: fixed;
+        z-index: 999999;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.95);
+        align-items: center;
+        justify-content: center;
+    }
+
+    .custom-lightbox.active {
+        display: flex;
+    }
+
+    .lightbox-content-wrapper {
+        position: relative;
+        max-width: 95%;
+        max-height: 95vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .lightbox-img {
+        max-width: 100%;
+        max-height: 95vh;
+        object-fit: contain;
+        box-shadow: 0 5px 25px rgba(0,0,0,0.8);
+    }
+
+    /* Navigation Buttons */
+    .lightbox-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255,255,255,0.15);
+        color: #fff;
+        border: none;
+        font-size: 30px;
+        cursor: pointer;
+        padding: 12px 18px;
+        border-radius: 50%;
+        transition: background 0.3s, color 0.3s;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .lightbox-btn:hover {
+        background: rgba(255,255,255,0.9);
+        color: #000;
+    }
+
+    .lightbox-prev { left: -70px; }
+    .lightbox-next { right: -70px; }
+
+    @media (max-width: 768px) {
+        .lightbox-prev { left: 5px; }
+        .lightbox-next { right: 5px; }
+    }
+
+    /* Close Button */
+    .lightbox-close {
+        position: absolute;
+        top: 15px;
+        right: 25px;
+        font-size: 45px;
+        color: rgba(255,255,255,0.7);
+        cursor: pointer;
+        background: none;
+        border: none;
+        line-height: 1;
+        z-index: 100000;
+    }
+    .lightbox-close:hover { color: #fff; }
+body[data-page="portfolio"] { margin: 0; background: #f4f5f2; font-family: "Avenir Next", Inter, ui-sans-serif, system-ui, sans-serif; }
+body[data-page="portfolio"] .gallery-wrapper { padding: clamp(42px, 7vw, 84px) 20px; }
+body[data-page="portfolio"] .gallery-title { margin-top: 0; }
+body[data-page="portfolio"] .lightbox-btn:focus-visible, body[data-page="portfolio"] .lightbox-close:focus-visible { outline-color: #d2aa4d; }
+  </style>
+</head>
+<body data-page="portfolio" class="">
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header-shell" data-site-header>
+  <div class="site-header-inner">
+    <a class="site-brand" href="index.html" aria-label="Peter Rentrop, MD home">Peter Rentrop, MD</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Open navigation menu" data-nav-toggle>
+      <span class="nav-toggle-lines" aria-hidden="true"></span>
+      <span class="visually-hidden" data-nav-toggle-label>Menu</span>
+    </button>
+    <nav class="site-nav" id="primary-navigation" aria-label="Primary navigation" data-site-nav>
+      <ul class="site-nav-list">
+        <li><a href="index.html" data-nav-page="home">Home</a></li>
+        <li><a href="about.html" data-nav-page="about">About</a></li>
+        <li><a href="portfolio.html" data-nav-page="portfolio">Portfolio</a></li>
+        <li><a href="resources.html" data-nav-page="resources">Resources</a></li>
+        <li><a href="blog.html" data-nav-page="blog">Blog</a></li>
+        <li><a href="contact.html" data-nav-page="contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main-content">
+<!-- Full Height Gallery Wrapper -->
+<div class="gallery-wrapper">
+    <!-- Centered H1 Title -->
+    <h1 class="gallery-title">Images of Peter Rentrop, MD</h1>
+
+    <!-- Gallery HTML -->
+    <div class="smart-justified-gallery" id="smartGallery">
+        <div class="smart-gallery-item">
+            <img src="https://peterrentrop.com/wp-content/uploads/2024/02/peter-rentrops-invention-the-08mm-spectronetics-laser-catheter-transformed-treatments-for-atherosclerotic-tissue-in-arteries.jpg" alt="Peter Rentrop's invention the 0.8mm Spectronetics Laser Catheter" loading="lazy" class="gallery-image" tabindex="0" role="button">
+        </div>
+        <div class="smart-gallery-item">
+            <img src="https://peterrentrop.com/wp-content/uploads/2024/01/peter-rentrop-brought-positron-emission-tomography-an-advanced-cardiology-test-to-new-york-benefiting-countless-patients.jpg" alt="Peter Rentrop brought Positron Emission Tomography to New York" loading="lazy" class="gallery-image" tabindex="0" role="button">
+        </div>
+        <div class="smart-gallery-item">
+            <img src="https://peterrentrop.com/wp-content/uploads/2023/10/peter-rentrop-invested-personal-resources-showcasing-his-commitment-to-making-cardiac-care-available-to-everyone.jpg" alt="Peter Rentrop invested personal resources for cardiac care" loading="lazy" class="gallery-image" tabindex="0" role="button">
+        </div>
+        <div class="smart-gallery-item">
+            <img src="https://peterrentrop.com/wp-content/uploads/2023/10/peter-rentrop-is-a-cardiologist-medical-director-president-gramercy-cardiac-disgnostic-services-pc-scaled.jpg" alt="Peter Rentrop is a Cardiologist and Medical Director" loading="lazy" class="gallery-image" tabindex="0" role="button">
+        </div>
+        <div class="smart-gallery-item">
+            <img src="https://peterrentrop.com/wp-content/uploads/2024/04/Dr.-Peter-Rentrop.png" alt="Dr. Peter Rentrop" loading="lazy" class="gallery-image" tabindex="0" role="button">
+        </div>
+        <div class="smart-gallery-item">
+            <img src="https://peterrentrop.com/wp-content/uploads/2024/04/Dr-Peter-Rentrop-MD.webp" alt="Dr. Peter Rentrop MD Portrait" loading="lazy" class="gallery-image" tabindex="0" role="button">
+        </div>
+
+
+ <div class="smart-gallery-item">
+            <img src="https://peterrentrop.com/wp-content/uploads/2023/10/peter-rentrop-has-an-enduring-legacy-not-just-in-cardiology-but-in-medical-innovation.jpg" alt="Dr. Peter Rentrop MD Portrait" loading="lazy" class="gallery-image" tabindex="0" role="button">
+        </div>
+
+ <div class="smart-gallery-item">
+            <img src="https://peterrentrop.com/wp-content/uploads/2023/10/4.jpg" alt="Dr. Peter Rentrop MD Portrait" loading="lazy" class="gallery-image" tabindex="0" role="button">
+        </div>
+
+
+
+
+    </div>
+</div>
+
+<!-- Lightbox HTML -->
+<div class="custom-lightbox" id="customLightbox" role="dialog" aria-modal="true" aria-label="Image viewer" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" title="Close" aria-label="Close image viewer">×</button>
+    <div class="lightbox-content-wrapper">
+        <button class="lightbox-btn lightbox-prev" id="lightboxPrev" title="Previous" aria-label="Previous image">❮</button>
+        <img src="" alt="" class="lightbox-img" id="lightboxImg">
+        <button class="lightbox-btn lightbox-next" id="lightboxNext" title="Next" aria-label="Next image">❯</button>
+    </div>
+</div>
+
+<!-- Lightbox JavaScript -->
+</main>
+<footer class="site-footer-shell">
+  <div class="site-footer-inner">
+    <div class="site-footer-top">
+      <div class="site-footer-about">
+        <h2 class="site-footer-brand">Peter Rentrop, MD</h2>
+        <p class="site-footer-description">Cardiologist, medical director, cardiovascular innovator, and advocate for accessible cardiac care.</p>
+      </div>
+      <div class="site-footer-links-group">
+        <h2 class="site-footer-heading">Explore</h2>
+        <nav aria-label="Footer navigation">
+          <ul class="site-footer-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="site-footer-social-group">
+        <h2 class="site-footer-heading">Connect</h2>
+        <ul class="site-social-list">
+          <li>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+              <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="M6.5 8.4H2.8V20h3.7V8.4ZM4.65 2.5a2.15 2.15 0 1 0 0 4.3 2.15 2.15 0 0 0 0-4.3ZM20.8 13.35c0-3.5-1.87-5.13-4.36-5.13-2.01 0-2.91 1.1-3.42 1.88V8.4H9.3V20h3.72v-5.74c0-1.51.29-2.98 2.17-2.98 1.85 0 1.87 1.73 1.87 3.08V20h3.72l.02-6.65Z"/></svg>
+              <span class="visually-hidden">LinkedIn</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook">
+              <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="M13.7 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5H17V3.62a22.4 22.4 0 0 0-2.4-.12c-2.38 0-4 1.45-4 4.12V9.9H8V13h2.6v8h3.1Z"/></svg>
+              <span class="visually-hidden">Facebook</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+              <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="M7.5 2.5h9A5 5 0 0 1 21.5 7.5v9a5 5 0 0 1-5 5h-9a5 5 0 0 1-5-5v-9a5 5 0 0 1 5-5Zm0 2A3 3 0 0 0 4.5 7.5v9a3 3 0 0 0 3 3h9a3 3 0 0 0 3-3v-9a3 3 0 0 0-3-3h-9Zm9.25 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7.25A4.75 4.75 0 1 1 12 16.75 4.75 4.75 0 0 1 12 7.25Zm0 2A2.75 2.75 0 1 0 12 14.75 2.75 2.75 0 0 0 12 9.25Z"/></svg>
+              <span class="visually-hidden">Instagram</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube" title="YouTube">
+              <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="M21.2 7.1a2.8 2.8 0 0 0-1.97-1.98C17.5 4.65 12 4.65 12 4.65s-5.5 0-7.23.47A2.8 2.8 0 0 0 2.8 7.1 29.2 29.2 0 0 0 2.33 12c0 1.65.16 3.3.47 4.9a2.8 2.8 0 0 0 1.97 1.98c1.73.47 7.23.47 7.23.47s5.5 0 7.23-.47a2.8 2.8 0 0 0 1.97-1.98c.31-1.6.47-3.25.47-4.9s-.16-3.3-.47-4.9ZM10 15.2V8.8l5.55 3.2L10 15.2Z"/></svg>
+              <span class="visually-hidden">YouTube</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer-bottom">
+      <p>&copy; <span data-current-year>2026</span> Peter Rentrop, MD. All rights reserved.</p>
+      <p><a href="privacy.html">Privacy Policy</a></p>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/site.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const images = document.querySelectorAll('.gallery-image');
+        const lightbox = document.getElementById('customLightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const closeBtn = document.getElementById('lightboxClose');
+        const prevBtn = document.getElementById('lightboxPrev');
+        const nextBtn = document.getElementById('lightboxNext');
+        
+        let currentIndex = 0;
+
+        images.forEach((img, index) => {
+            const openImage = () => {
+                currentIndex = index;
+                updateLightboxImage();
+                lightbox.classList.add('active');
+                lightbox.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+                closeBtn.focus();
+            };
+            img.addEventListener('click', openImage);
+            img.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    openImage();
+                }
+            });
+        });
+
+        function updateLightboxImage() {
+            lightboxImg.src = images[currentIndex].src;
+            lightboxImg.alt = images[currentIndex].alt;
+        }
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            lightbox.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            images[currentIndex]?.focus();
+        };
+
+        closeBtn.addEventListener('click', closeLightbox);
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target.classList.contains('lightbox-content-wrapper')) {
+                closeLightbox();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+            updateLightboxImage();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+            updateLightboxImage();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') nextBtn.click();
+            if (e.key === 'ArrowLeft') prevBtn.click();
+        });
+    });
+</script>
+</body>
+</html>

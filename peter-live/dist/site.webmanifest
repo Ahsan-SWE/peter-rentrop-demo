@@ -1,0 +1,9 @@
+{
+  "name": "Peter Rentrop, MD",
+  "short_name": "Peter Rentrop",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#182835",
+  "theme_color": "#061826",
+  "lang": "en-US"
+}
