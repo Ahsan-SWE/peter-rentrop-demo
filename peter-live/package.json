@@ -1,0 +1,14 @@
+{
+  "name": "peter-rentrop-live-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Production-ready static multi-page website for Peter Rentrop, MD.",
+  "scripts": {
+    "dev": "python3 -m http.server 4173",
+    "check": "node scripts/check-site.mjs",
+    "build": "node scripts/build.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
